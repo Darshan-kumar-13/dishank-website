@@ -1,18 +1,18 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f4f6f8;
+  background: #f4f6f8;
 }
 
 header {
-  background-color: #0b3c5d;
+  background: #0b3c5d;
   color: white;
   text-align: center;
   padding: 20px;
 }
 
 nav {
-  background-color: #1d70a2;
+  background: #1d70a2;
   text-align: center;
   padding: 10px;
 }
@@ -31,18 +31,21 @@ nav button:hover {
   text-decoration: underline;
 }
 
-.content {
-  display: none;
+section {
   background: white;
   margin: 20px;
   padding: 20px;
   border-radius: 5px;
 }
 
-input {
+.hidden {
+  display: none;
+}
+
+input, select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 10px 0;
   font-size: 16px;
 }
 
@@ -57,9 +60,10 @@ li {
 }
 
 footer {
-  background-color: #0b3c5d;
+  background: #0b3c5d;
   color: white;
   text-align: center;
   padding: 10px;
 }
+
 
