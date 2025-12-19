@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Rajeev Institute of Technology, Hassan</title>
+  <title>Dishank | RIT Hassan</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,42 +13,45 @@
 </header>
 
 <nav>
-  <a href="#search">Search</a>
-  <a href="#about">About</a>
-  <a href="#departments">Departments</a>
-  <a href="#contact">Contact</a>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('search')">Search</button>
+  <button onclick="showSection('departments')">Departments</button>
+  <button onclick="showSection('contact')">Contact</button>
 </nav>
 
-<!-- SEARCH SECTION -->
-<section id="search">
-  <h2>Search Faculty / Department / Room</h2>
-  <input 
-    type="text" 
-    id="searchInput" 
-    placeholder="Type principal, HOD, CSE, room number..."
+<!-- HOME -->
+<section id="home" class="content">
+  <h2>Welcome</h2>
+  <p>
+    Dishank is a simple campus directory to help locate faculty,
+    departments, rooms, and administrative offices at RIT Hassan.
+  </p>
+</section>
+
+<!-- SEARCH -->
+<section id="search" class="content">
+  <h2>Search Faculty / Room / Department</h2>
+
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Type principal, HOD, room number..."
     onkeyup="searchData()"
   >
 
   <ul id="resultList">
     <li>Principal – Main Block, Ground Floor</li>
-    <li>HOD CSE – Room 313, 3rd Floor, Main Block</li>
-    <li>HOD ECE – Room 214, 2nd Floor, Main Block</li>
-    <li>HOD Civil – Room CV-204, Civil Block</li>
-    <li>CSE Department – 3rd Floor, Main Block</li>
-    <li>ECE Department – 2nd Floor, Main Block</li>
+    <li>HOD CSE – Room 313, 3rd Floor</li>
+    <li>HOD ECE – Room 214, 2nd Floor</li>
+    <li>HOD Civil – Room CV-204</li>
+    <li>CSE Department – 3rd Floor</li>
+    <li>ECE Department – 2nd Floor</li>
     <li>Civil Department – Civil Block</li>
   </ul>
 </section>
 
-<section id="about">
-  <h2>About the College</h2>
-  <p>
-    Rajeev Institute of Technology (RIT), Hassan is a premier engineering
-    institution offering quality technical education.
-  </p>
-</section>
-
-<section id="departments">
+<!-- DEPARTMENTS -->
+<section id="departments" class="content">
   <h2>Departments</h2>
   <ul>
     <li>Computer Science & Engineering</li>
@@ -60,7 +63,8 @@
   </ul>
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="content">
   <h2>Contact</h2>
   <p>
     Rajeev Institute of Technology<br>
