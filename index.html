@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dishank | RIT Hassan</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Rajeev Institute of Technology</h1>
-  <p>Hassan, Karnataka</p>
-</header>
-
-<nav>
-  <button onclick="showSection('home')">Home</button>
-  <button onclick="showSection('search')">Search</button>
-  <button onclick="showSection('departments')">Departments</button>
-  <button onclick="showSection('contact')">Contact</button>
-</nav>
-
-<!-- HOME -->
-<section id="home" class="content">
-  <h2>Welcome</h2>
-  <p>
-    Dishank is a simple campus directory to help locate faculty,
-    departments, rooms, and administrative offices at RIT Hassan.
-  </p>
-</section>
-
-<!-- SEARCH -->
 <section id="search" class="content">
-  <h2>Search Faculty / Room / Department</h2>
+  <h2>Search Faculty / HOD / Department</h2>
 
   <input
     type="text"
@@ -39,7 +8,9 @@
     onkeyup="searchData()"
   >
 
-  <ul id="resultList">
+  <p id="searchMessage">Start typing to see results</p>
+
+  <ul id="resultList" style="display: none;">
     <li>Principal – Main Block, Ground Floor</li>
     <li>HOD CSE – Room 313, 3rd Floor</li>
     <li>HOD ECE – Room 214, 2nd Floor</li>
@@ -50,32 +21,3 @@
   </ul>
 </section>
 
-<!-- DEPARTMENTS -->
-<section id="departments" class="content">
-  <h2>Departments</h2>
-  <ul>
-    <li>Computer Science & Engineering</li>
-    <li>Electronics & Communication Engineering</li>
-    <li>Electrical & Electronics Engineering</li>
-    <li>Mechanical Engineering</li>
-    <li>Civil Engineering</li>
-    <li>Information Science & Engineering</li>
-  </ul>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="content">
-  <h2>Contact</h2>
-  <p>
-    Rajeev Institute of Technology<br>
-    Hassan, Karnataka
-  </p>
-</section>
-
-<footer>
-  <p>© 2025 Rajeev Institute of Technology, Hassan</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
