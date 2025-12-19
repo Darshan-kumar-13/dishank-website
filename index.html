@@ -3,7 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>Dishank | RIT Hassan</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+    }
+    header {
+      background: #0b3c5d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    nav {
+      background: #1d70a2;
+      text-align: center;
+      padding: 10px;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      margin: 0 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      background: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    footer {
+      background: #0b3c5d;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,60 +68,45 @@
 </header>
 
 <nav>
-  <button onclick="showHome()">Home</button>
-  <button onclick="showSearch()">Search</button>
-  <button onclick="showAbout()">About</button>
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('search')">Search</button>
+  <button onclick="show('about')">About</button>
 </nav>
 
-<!-- HOME -->
-<section id="homeSection">
+<section id="home">
   <h2>Welcome</h2>
   <p>
-    Dishank is a simple campus directory designed to help students and visitors
-    locate faculty cabins, HOD offices, departments, room numbers, and blocks
-    inside Rajeev Institute of Technology, Hassan.
+    Dishank helps locate faculty cabins, HOD offices, departments,
+    rooms, floors, and blocks inside Rajeev Institute of Technology, Hassan.
   </p>
 </section>
 
-<!-- SEARCH -->
-<section id="searchSection" class="hidden">
-  <h2>Find Faculty / HOD / Department</h2>
-
-  <select id="category" onchange="resetSearch()">
-    <option value="">-- Select What to Find --</option>
-    <option value="faculty">Faculty / HOD</option>
-    <option value="department">Department</option>
-    <option value="office">Office</option>
-  </select>
+<section id="search" class="hidden">
+  <h2>Search Directory</h2>
 
   <input
     type="text"
     id="searchInput"
-    placeholder="Type name, department, or room number..."
+    placeholder="Type principal, hod, cse, room number..."
     onkeyup="searchData()"
-    disabled
   >
 
-  <p id="searchMessage">Select a category and start typing</p>
-
   <ul id="resultList" class="hidden">
-    <li data-type="office">Principal – Main Block, Ground Floor</li>
-    <li data-type="faculty">HOD CSE – Room 313, 3rd Floor, Main Block</li>
-    <li data-type="faculty">HOD ECE – Room 214, 2nd Floor, Main Block</li>
-    <li data-type="faculty">HOD Civil – Room CV-204, Civil Block</li>
-    <li data-type="department">CSE Department – 3rd Floor, Main Block</li>
-    <li data-type="department">ECE Department – 2nd Floor, Main Block</li>
-    <li data-type="department">Civil Department – Civil Block</li>
+    <li>Principal – Main Block, Ground Floor</li>
+    <li>HOD CSE – Room 313, 3rd Floor, Main Block</li>
+    <li>HOD ECE – Room 214, 2nd Floor, Main Block</li>
+    <li>HOD Civil – Room CV-204, Civil Block</li>
+    <li>CSE Department – 3rd Floor, Main Block</li>
+    <li>ECE Department – 2nd Floor, Main Block</li>
+    <li>Civil Department – Civil Block</li>
   </ul>
 </section>
 
-<!-- ABOUT -->
-<section id="aboutSection" class="hidden">
+<section id="about" class="hidden">
   <h2>About RIT Hassan</h2>
   <p>
     Rajeev Institute of Technology (RIT), Hassan is a reputed engineering
-    institution offering quality technical education with a focus on
-    academic excellence, innovation, and discipline.
+    institution focused on academic excellence and innovation.
   </p>
 </section>
 
@@ -74,8 +114,35 @@
   <p>© 2025 Rajeev Institute of Technology, Hassan</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  function show(section) {
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("search").classList.add("hidden");
+    document.getElementById("about").classList.add("hidden");
+    document.getElementById(section).classList.remove("hidden");
+  }
+
+  function searchData() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const list = document.getElementById("resultList");
+    const items = list.getElementsByTagName("li");
+
+    if (input === "") {
+      list.classList.add("hidden");
+      return;
+    }
+
+    list.classList.remove("hidden");
+
+    for (let i = 0; i < items.length; i++) {
+      const text = items[i].textContent.toLowerCase();
+      items[i].style.display = text.includes(input) ? "" : "none";
+    }
+  }
+</script>
+
 </body>
 </html>
+
 
 
