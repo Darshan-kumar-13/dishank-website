@@ -1,21 +1,63 @@
-function searchData() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const items = document.querySelectorAll("#resultList li");
+function hideAll() {
+  document.getElementById("homeSection").classList.add("hidden");
+  document.getElementById("searchSection").classList.add("hidden");
+  document.getElementById("aboutSection").classList.add("hidden");
+}
+
+function showHome() {
+  hideAll();
+  document.getElementById("homeSection").classList.remove("hidden");
+}
+
+function showSearch() {
+  hideAll();
+  document.getElementById("searchSection").classList.remove("hidden");
+}
+
+function showAbout() {
+  hideAll();
+  document.getElementById("aboutSection").classList.remove("hidden");
+}
+
+function resetSearch() {
+  const category = document.getElementById("category").value;
+  const input = document.getElementById("searchInput");
   const list = document.getElementById("resultList");
   const message = document.getElementById("searchMessage");
 
-  // If input is empty
+  input.value = "";
+  list.classList.add("hidden");
+
+  if (category === "") {
+    input.disabled = true;
+    message.innerText = "Select a category and start typing";
+  } else {
+    input.disabled = false;
+    message.innerText = "Start typing to see results";
+  }
+}
+
+function searchData() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const category = document.getElementById("category").value;
+  const items = document.querySelectorAll("#resultList li");
+  const list = document.getElementById("resultList");
+
   if (input === "") {
-    list.style.display = "none";
-    message.style.display = "block";
+    list.classList.add("hidden");
     return;
   }
 
-  list.style.display = "block";
-  message.style.display = "none";
+  list.classList.remove("hidden");
 
   items.forEach(item => {
-    const text = item.textContent.toLowerCase();
-    item.style.display = text.includes(input) ? "" : "none";
+    const matchesText = item.textContent.toLowerCase().includes(input);
+    const matchesCategory = item.dataset.type === category;
+
+    item.style.display = (matchesText && matchesCategory) ? "" : "none";
   });
 }
+
+// Default view
+showHome();
+
