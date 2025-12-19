@@ -1,27 +1,21 @@
-// Show only selected section
-function showSection(sectionId) {
-  const sections = document.querySelectorAll(".content");
-  sections.forEach(section => {
-    section.style.display = "none";
-  });
-
-  document.getElementById(sectionId).style.display = "block";
-}
-
-// Default page
-document.addEventListener("DOMContentLoaded", () => {
-  showSection("home");
-});
-
-// Search logic
 function searchData() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const items = document.querySelectorAll("#resultList li");
+  const list = document.getElementById("resultList");
+  const message = document.getElementById("searchMessage");
+
+  // If input is empty
+  if (input === "") {
+    list.style.display = "none";
+    message.style.display = "block";
+    return;
+  }
+
+  list.style.display = "block";
+  message.style.display = "none";
 
   items.forEach(item => {
     const text = item.textContent.toLowerCase();
     item.style.display = text.includes(input) ? "" : "none";
   });
 }
-
-
