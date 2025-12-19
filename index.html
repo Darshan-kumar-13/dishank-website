@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rajeev Institute of Technology, Hassan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Rajeev Institute of Technology</h1>
+  <p>Hassan, Karnataka</p>
+</header>
+
+<nav>
+  <a href="#search">Search</a>
+  <a href="#about">About</a>
+  <a href="#departments">Departments</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- SEARCH SECTION -->
+<section id="search">
+  <h2>Search Faculty / Department / Room</h2>
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Type principal, HOD, CSE, room number..."
+    onkeyup="searchData()"
+  >
+
+  <ul id="resultList">
+    <li>Principal – Main Block, Ground Floor</li>
+    <li>HOD CSE – Room 313, 3rd Floor, Main Block</li>
+    <li>HOD ECE – Room 214, 2nd Floor, Main Block</li>
+    <li>HOD Civil – Room CV-204, Civil Block</li>
+    <li>CSE Department – 3rd Floor, Main Block</li>
+    <li>ECE Department – 2nd Floor, Main Block</li>
+    <li>Civil Department – Civil Block</li>
+  </ul>
+</section>
+
+<section id="about">
+  <h2>About the College</h2>
+  <p>
+    Rajeev Institute of Technology (RIT), Hassan is a premier engineering
+    institution offering quality technical education.
+  </p>
+</section>
+
+<section id="departments">
+  <h2>Departments</h2>
+  <ul>
+    <li>Computer Science & Engineering</li>
+    <li>Electronics & Communication Engineering</li>
+    <li>Electrical & Electronics Engineering</li>
+    <li>Mechanical Engineering</li>
+    <li>Civil Engineering</li>
+    <li>Information Science & Engineering</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    Rajeev Institute of Technology<br>
+    Hassan, Karnataka
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 Rajeev Institute of Technology, Hassan</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
