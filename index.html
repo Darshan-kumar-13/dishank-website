@@ -1,23 +1,81 @@
-<section id="search" class="content">
-  <h2>Search Faculty / HOD / Department</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dishank | RIT Hassan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Dishank</h1>
+  <p>Smart Campus Finder – RIT Hassan</p>
+</header>
+
+<nav>
+  <button onclick="showHome()">Home</button>
+  <button onclick="showSearch()">Search</button>
+  <button onclick="showAbout()">About</button>
+</nav>
+
+<!-- HOME -->
+<section id="homeSection">
+  <h2>Welcome</h2>
+  <p>
+    Dishank is a simple campus directory designed to help students and visitors
+    locate faculty cabins, HOD offices, departments, room numbers, and blocks
+    inside Rajeev Institute of Technology, Hassan.
+  </p>
+</section>
+
+<!-- SEARCH -->
+<section id="searchSection" class="hidden">
+  <h2>Find Faculty / HOD / Department</h2>
+
+  <select id="category" onchange="resetSearch()">
+    <option value="">-- Select What to Find --</option>
+    <option value="faculty">Faculty / HOD</option>
+    <option value="department">Department</option>
+    <option value="office">Office</option>
+  </select>
 
   <input
     type="text"
     id="searchInput"
-    placeholder="Type principal, HOD, room number..."
+    placeholder="Type name, department, or room number..."
     onkeyup="searchData()"
+    disabled
   >
 
-  <p id="searchMessage">Start typing to see results</p>
+  <p id="searchMessage">Select a category and start typing</p>
 
-  <ul id="resultList" style="display: none;">
-    <li>Principal – Main Block, Ground Floor</li>
-    <li>HOD CSE – Room 313, 3rd Floor</li>
-    <li>HOD ECE – Room 214, 2nd Floor</li>
-    <li>HOD Civil – Room CV-204</li>
-    <li>CSE Department – 3rd Floor</li>
-    <li>ECE Department – 2nd Floor</li>
-    <li>Civil Department – Civil Block</li>
+  <ul id="resultList" class="hidden">
+    <li data-type="office">Principal – Main Block, Ground Floor</li>
+    <li data-type="faculty">HOD CSE – Room 313, 3rd Floor, Main Block</li>
+    <li data-type="faculty">HOD ECE – Room 214, 2nd Floor, Main Block</li>
+    <li data-type="faculty">HOD Civil – Room CV-204, Civil Block</li>
+    <li data-type="department">CSE Department – 3rd Floor, Main Block</li>
+    <li data-type="department">ECE Department – 2nd Floor, Main Block</li>
+    <li data-type="department">Civil Department – Civil Block</li>
   </ul>
 </section>
+
+<!-- ABOUT -->
+<section id="aboutSection" class="hidden">
+  <h2>About RIT Hassan</h2>
+  <p>
+    Rajeev Institute of Technology (RIT), Hassan is a reputed engineering
+    institution offering quality technical education with a focus on
+    academic excellence, innovation, and discipline.
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 Rajeev Institute of Technology, Hassan</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
 
