@@ -1,65 +1,27 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f4f6f8;
+// Show only selected section
+function showSection(sectionId) {
+  const sections = document.querySelectorAll(".content");
+  sections.forEach(section => {
+    section.style.display = "none";
+  });
+
+  document.getElementById(sectionId).style.display = "block";
 }
 
-header {
-  background-color: #0b3c5d;
-  color: white;
-  text-align: center;
-  padding: 20px;
+// Default page
+document.addEventListener("DOMContentLoaded", () => {
+  showSection("home");
+});
+
+// Search logic
+function searchData() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const items = document.querySelectorAll("#resultList li");
+
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(input) ? "" : "none";
+  });
 }
 
-nav {
-  background-color: #1d70a2;
-  text-align: center;
-  padding: 10px;
-}
-
-nav button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 16px;
-  margin: 0 15px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-nav button:hover {
-  text-decoration: underline;
-}
-
-.content {
-  display: none;
-  background: white;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-footer {
-  background-color: #0b3c5d;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
 
